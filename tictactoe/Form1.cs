@@ -15,11 +15,38 @@ namespace tictactoe
         public Form1()
         {
             InitializeComponent();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        bool turn = true;
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            startButton.Enabled = false;
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void pic_click(object sender, EventArgs e)
+        {
+            PictureBox b = (PictureBox)sender;
+
+            if (turn)
+            {
+                b.Image = Properties.Resources.x;
+             
+
+            } else
+            {
+                b.Image = Properties.Resources.o;
+            };
+
+            turn = !turn;
+
         }
     }
 }
